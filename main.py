@@ -2,12 +2,13 @@ import polygon
 
 import pandas as pd
 import numpy as np
+from local_settings import polygonAPIkey as settings
 
 
 
 
 if __name__ == '__main__':
-    reference_client = polygon.ReferenceClient('ggLrVQdkkqAqKjSZGoEhkgUxY4sJYbik')
+    reference_client = polygon.ReferenceClient(settings['APIkey'])
     df = pd.DataFrame(reference_client.get_tickers(market='stocks'))
 
     cols = ['ticker', 'name', 'market', 'locale', 'primary_exchange', 'type', 'active', 'currency_name', 'cik',
